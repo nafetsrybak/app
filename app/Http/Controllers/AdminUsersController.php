@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\User;
 use App\Role;
 
+use App\Http\Requests\UsersRequest;
+
 class AdminUsersController extends Controller
 {
     /**
@@ -45,10 +47,12 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
         //
-        return $request->all();
+        User::create($request->all());
+
+        return redirect('admin/users');
     }
 
     /**

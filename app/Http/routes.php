@@ -23,4 +23,8 @@ Route::get('/admin', function(){
 	return view('admin.index');
 });
 
+Route::get('/phpinfo', function(){
+	phpinfo();
+});
+
 Route::resource('/admin/users', 'AdminUsersController');
