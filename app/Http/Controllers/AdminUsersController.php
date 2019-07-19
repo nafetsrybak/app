@@ -15,7 +15,7 @@ use App\Http\Requests\UsersRequest;
 class AdminUsersController extends Controller
 {
     public function __construct(){
-        //$this->middleware('auth');
+        $this->middleware('auth');
 
         //$this->middleware('auth')->only('store');
 
@@ -138,7 +138,7 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
-        //return redirect('/admin/users');
+        return redirect('/admin/users');
     }
 
     /**
