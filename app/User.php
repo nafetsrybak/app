@@ -36,4 +36,19 @@ class User extends Authenticatable
     public function photo(){
         return $this->belongsTo('App\Photo');
     }
+
+    //цікаво те що якщо if не виконається(пустий пароль) то в атрибути не перезапишеться пароль(пустий) тобто виконується лише код який є в цій функції по крайній мірі я це зараз так розумію
+    public function setPasswordAttribute($password){
+        if(!empty($password)){
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
+
+    public function isAdmin(){
+        if($this->role->name == "administrator"){
+            return true;
+        }
+
+        return false;
+    }
 }

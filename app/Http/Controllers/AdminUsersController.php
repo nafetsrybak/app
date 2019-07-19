@@ -14,6 +14,18 @@ use App\Http\Requests\UsersRequest;
 
 class AdminUsersController extends Controller
 {
+    public function __construct(){
+        //$this->middleware('auth');
+
+        //$this->middleware('auth')->only('store');
+
+        //$this->middleware('subscribed')->except('store');
+
+        //$this->middleware('admin')->except(['index', 'show']);
+
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -62,8 +74,6 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        $input['password'] = bcrypt($request->password);
-
         User::create($input);
 
         return redirect('admin/users');
@@ -108,12 +118,14 @@ class AdminUsersController extends Controller
         //
         $user = User::findOrFail($id);
 
-        if(trim($request->password) == ''){
-            $input = $request->except('password');
-        } else{
-            $input = $request->all();
-            $input['password'] = bcrypt($request->password);
-        }
+        // if(trim($request->password) == ''){
+        //     $input = $request->except('password');
+        // } else{
+        //     $input = $request->all();
+        //     $input['password'] = bcrypt($request->password);
+        // }
+
+        $input = $request->all();
 
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
@@ -126,7 +138,7 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
-        return redirect('/admin/users');
+        //return redirect('/admin/users');
     }
 
     /**
