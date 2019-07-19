@@ -29,16 +29,31 @@ class UsersRequest extends Request
      * @return array
      */
     public function rules()
-    {
-        return [
-            //
-            'name'=>'required|string',
-            'email'=>'required|email|unique:users,email',
-            'role_id'=>'required|integer|exists:roles,id',
-            'is_active'=>'required|integer|min:0|max:1',
-            'password'=>'required|string',
-            'file'=>'file|max:2000|mimes:jpeg,bmp,png'
-        ];
+    { 
+        switch($this->method()){
+            case 'POST':{
+                return [
+                    //
+                    'name'=>'required|string',
+                    'email'=>'required|email|unique:users,email',
+                    'role_id'=>'required|integer|exists:roles,id',
+                    'is_active'=>'required|integer|min:0|max:1',
+                    'password'=>'required|string',
+                    'photo_id'=>'file|max:5000|mimes:jpeg,bmp,png'
+                ];
+            }
+            case 'PATCH':{
+                return [
+                    //
+                    'name'=>'required|string',
+                    'email'=>'required|email|unique:users,email,'.$this->route('users'),
+                    'role_id'=>'required|integer|exists:roles,id',
+                    'is_active'=>'required|integer|min:0|max:1',
+                    'password'=>'string',
+                    'photo_id'=>'file|max:5000|mimes:jpeg,bmp,png'
+                ];
+            }
+        }
     }
 
     public function messages()

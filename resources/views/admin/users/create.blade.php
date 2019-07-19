@@ -37,7 +37,7 @@
 	</div>
 	<div class="form-group">
 		<label class="form-check-label" for="InputFile">File upload:</label>
-		<input type="file" class="form-control-file-lg" name="file" id="InputFile">
+		<input type="file" class="form-control-file-lg" name="photo_id" id="InputFile">
 	</div>
 	<!-- @csrf -->
 	<div class="form-group">

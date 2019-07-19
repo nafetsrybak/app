@@ -26,7 +26,6 @@
 </head>
 
 <body id="admin-page">
-
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -310,10 +309,6 @@
 
 
 @yield('footer')
-
-
-
-
 
 </body>
 
