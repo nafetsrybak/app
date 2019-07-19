@@ -64,6 +64,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                @if(Auth::user()->isAdmin())
+                                    <li><a href="{{ url('/admin/users') }}"><i class="fa fa-btn fa-star"></i>Admin panel</a></li>
+                                @endif
                             </ul>
                         </li>
                     @endif

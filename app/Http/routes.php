@@ -19,9 +19,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin', function(){
+Route::get('/admin', ['middleware'=>['auth', 'admin'], function(){
 	return view('admin.index');
-});
+}]);
 
 Route::get('/phpinfo', function(){
 	phpinfo();

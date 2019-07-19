@@ -50,8 +50,15 @@
 			</div>
 			<!-- @csrf -->
 			<div class="form-group">
-				<button class="btn btn-info btn-lg">Update user</button>
+				<button class="btn btn-lg btn-info col-sm-3 col-xs-5">Update user</button>
 			</div>	
+		</form>
+		<form method="post" action="{{ route('admin.users.destroy', $user->id) }}">
+			{{ csrf_field() }}
+			{{ method_field('DELETE') }}
+			<div class="form-group">
+				<button class="btn btn-lg btn-danger col-sm-3 col-xs-5 pull-right">Delete user</button>
+			</div>
 		</form>
 	</div>
 </div>

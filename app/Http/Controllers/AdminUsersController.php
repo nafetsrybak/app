@@ -76,6 +76,8 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
+        session()->flash('massage_text', 'The user hes been created!');
+
         return redirect('admin/users');
     }
 
@@ -138,6 +140,8 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
+        session()->flash('massage_text', 'The user hes updated!');
+
         return redirect('/admin/users');
     }
 
@@ -150,5 +154,18 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::findOrFail($id);
+
+        if($user->photo){
+            unlink(public_path() . $user->photo->file);
+        }
+
+        $user->delete();
+
+        session()->flash('massage_text', 'The user hes been deleted!');
+
+        
+
+        return redirect('/admin/users');
     }
 }

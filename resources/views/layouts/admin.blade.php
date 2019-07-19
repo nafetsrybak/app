@@ -47,7 +47,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i>{{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
@@ -82,10 +82,6 @@
         {{--</li>--}}
         {{--@endif--}}
         {{--</ul>--}}
-
-
-
-
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
