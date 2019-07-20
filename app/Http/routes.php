@@ -28,3 +28,5 @@ Route::get('/phpinfo', function(){
 });
 
 Route::resource('/admin/users', 'AdminUsersController');
+
+Route::resource('/admin/posts', 'AdminPostsController');
