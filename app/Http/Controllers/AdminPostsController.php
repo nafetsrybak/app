@@ -72,7 +72,8 @@ class AdminPostsController extends Controller
 
         $user->posts()->create($input);
 
-       
+        session()->flash('massage_text', 'The post has been created!');
+
         return redirect('admin/posts');
     }
 
@@ -96,6 +97,11 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        $categories = Category::lists('name', 'id')->all();
+
+        return view('admin.posts.edit', compact(['post', 'categories']));
     }
 
     /**
@@ -105,9 +111,34 @@ class AdminPostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostsRequest $request, $id)
     {
         //
+        //$post = Post::findOrFail($id);
+        $post = Auth::user()->posts()->whereId($id)->first();
+
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            if($post->photo){
+                unlink(public_path() . $post->photo->file);
+
+                $post->photo->update(['file'=>$name]);
+                $input['photo_id'] = $post->photo->id;
+            }else{
+                $photo = Photo::create(['file'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
+        }
+        $post->update($input);
+
+        session()->flash('massage_text', 'The post has been updated!');
+
+        return redirect('admin/posts');
     }
 
     /**

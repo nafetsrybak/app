@@ -23,18 +23,33 @@ class PostsRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-            'title'=>'required|string',
-            'body'=>'required|string',
-            'category_id'=>'required|integer',
-            'photo_id'=>'required|file|max:5000|mimes:jpeg,bmp,png'
-        ];
+        switch($this->method()){
+            case 'POST':{
+                return [
+                    //
+                    'title'=>'required|string',
+                    'body'=>'required|string',
+                    'category_id'=>'required|integer',
+                    'photo_id'=>'required|file|max:5000|mimes:jpeg,bmp,png'
+                ];
+            }
+            case 'PATCH':{
+                return [
+                    //
+                    'title'=>'required|string',
+                    'body'=>'required|string',
+                    'category_id'=>'required|integer',
+                    'photo_id'=>'file|max:5000|mimes:jpeg,bmp,png'
+                ];
+            }
+        }
     }
 
     public function messages()
     {
         return [
+            'photo_id.file'=>'Is not file)',
+            'photo_id.mimes'=>'The photo must be a file of type: :values.',
             'category_id.integer'=>'Please choose category!'
         ];
     }

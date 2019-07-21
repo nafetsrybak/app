@@ -76,7 +76,7 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
-        session()->flash('massage_text', 'The user hes been created!');
+        session()->flash('massage_text', 'The user has been created!');
 
         return redirect('admin/users');
     }
@@ -120,22 +120,22 @@ class AdminUsersController extends Controller
         //
         $user = User::findOrFail($id);
 
-        // if(trim($request->password) == ''){
-        //     $input = $request->except('password');
-        // } else{
-        //     $input = $request->all();
-        //     $input['password'] = bcrypt($request->password);
-        // }
-
         $input = $request->all();
 
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
 
             $file->move('images', $name);
-            $photo = Photo::create(['file'=>$name]);
 
-            $input['photo_id'] = $photo->id;
+            if($user->photo){
+                unlink(public_path() . $user->photo->file);
+
+                $user->photo->update(['file'=>$name]);
+                $input['photo_id'] = $user->photo->id;
+            }else{
+                $photo = Photo::create(['file'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
         }
 
         $user->update($input);
@@ -158,6 +158,7 @@ class AdminUsersController extends Controller
 
         if($user->photo){
             unlink(public_path() . $user->photo->file);
+            $user->photo->delete();
         }
 
         $user->delete();
