@@ -49,8 +49,6 @@ class AdminUsersController extends Controller
         //
         $roles = Role::lists('name', 'id')->all();
 
-        //dd($roles);
-
         return view('admin.users.create', compact('roles'));
     }
 
@@ -140,7 +138,7 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
-        session()->flash('massage_text', 'The user hes updated!');
+        session()->flash('massage_text', 'The user has been updated!');
 
         return redirect('/admin/users');
     }
@@ -163,7 +161,7 @@ class AdminUsersController extends Controller
 
         $user->delete();
 
-        session()->flash('massage_text', 'The user hes been deleted!');
+        session()->flash('massage_text', 'The user has been deleted!');
 
         
 

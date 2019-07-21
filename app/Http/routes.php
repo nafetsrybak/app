@@ -23,10 +23,11 @@ Route::get('/admin', ['middleware'=>['auth', 'admin'], function(){
 	return view('admin.index');
 }]);
 
+Route::resource('/admin/users', 'AdminUsersController');
+Route::resource('/admin/posts', 'AdminPostsController');
+Route::resource('/admin/categories', 'AdminCategoryController');
+
+
 Route::get('/phpinfo', function(){
 	phpinfo();
 });
-
-Route::resource('/admin/users', 'AdminUsersController');
-
-Route::resource('/admin/posts', 'AdminPostsController');
