@@ -16,6 +16,8 @@
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
+    @yield('styles')
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -140,7 +142,7 @@
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="{{ route('admin.categories.index') }}">Create Category</a>
                             </li>
 
                         </ul>
@@ -152,11 +154,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{ route('admin.media.index') }}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="/uploadmedia">Upload Media</a>
+                                <a href="{{ route('admin.media.create') }}">Upload Media</a>
                             </li>
 
                         </ul>
@@ -303,9 +305,7 @@
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
 
-
+@yield('scripts')
 @yield('footer')
-
 </body>
-
 </html>
