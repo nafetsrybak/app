@@ -27,6 +27,10 @@ Route::resource('/admin/users', 'AdminUsersController');
 Route::resource('/admin/posts', 'AdminPostsController');
 Route::resource('/admin/categories', 'AdminCategoryController');
 Route::resource('/admin/media', 'AdminMediasController');
+Route::resource('/admin/comments', 'PostCommentsController');
+Route::resource('/admin/comment/replies', 'CommentRepliesController');
+
+Route::get('/post/{id}', 'AdminPostsController@post');
 
 Route::get('/phpinfo', function(){
 	phpinfo();

@@ -18,6 +18,8 @@ class AdminPostsController extends Controller
     public function __construct(){
         $this->middleware('auth');
         $this->middleware('admin');
+
+        $this->middleware('admin')->except('post');
     }
 
     /**
@@ -163,5 +165,9 @@ class AdminPostsController extends Controller
         session()->flash('massage_text', 'The post has been deleted!');
 
         return redirect('admin/posts');
+    }
+
+    public function post($id){
+        return 'it works';
     }
 }

@@ -23,13 +23,19 @@
 			      <select id="category" class="form-control" name="category_id">
 			        <option selected>Choose...</option>
 			        @if($categories)
-				        @foreach($categories as $id=>$category)
-				        	@if($id == $post->category->id)
-				        		<option value="{{ $id }}" selected="">{{ $category }}</option>
-				        	@else
-				        		<option value="{{ $id }}">{{ $category }}</option>
-				        	@endif
-				        @endforeach
+			        	@if($post->category()->exists())
+					        @foreach($categories as $id=>$category)
+					        	@if($id == $post->category->id)
+					        		<option value="{{ $id }}" selected="">{{ $category }}</option>
+					        	@else
+					        		<option value="{{ $id }}">{{ $category }}</option>
+					        	@endif
+					        @endforeach
+				        @else
+				        	@foreach($categories as $id=>$category)
+					        		<option value="{{ $id }}">{{ $category }}</option>
+					        @endforeach
+					    @endif
 			        @endif
 			      </select>
 			    </div>
