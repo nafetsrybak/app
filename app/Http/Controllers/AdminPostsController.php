@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminPostsController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
-        $this->middleware('admin');
-
+        $this->middleware('auth')->except('post');
         $this->middleware('admin')->except('post');
     }
 
@@ -168,6 +166,10 @@ class AdminPostsController extends Controller
     }
 
     public function post($id){
-        return 'it works';
+        $post = Post::findOrFail($id);
+
+        $comments = $post->comments()->whereIsActive(1)->get();
+
+        return view('post', compact('post', 'comments'));
     }
 }

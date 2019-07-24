@@ -10,6 +10,8 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+                <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+                <script>paypal.Buttons().render('body');</script>
             </div>
         </div>
     </div>

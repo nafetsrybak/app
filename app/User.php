@@ -39,6 +39,9 @@ class User extends Authenticatable
 
     //цікаво те що якщо if не виконається(пустий пароль) то в атрибути не перезапишеться пароль(пустий) тобто виконується лише код який є в цій функції по крайній мірі я це зараз так розумію
     public function setPasswordAttribute($password){
+        if(request()->path() == 'register'){
+            $this->attributes['password'] = $password;
+        }
         if(!empty($password)){
             $this->attributes['password'] = bcrypt($password);
         }

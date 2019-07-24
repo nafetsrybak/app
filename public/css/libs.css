@@ -8689,6 +8689,10 @@ button.close {
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+.main {
+    padding-top: 60px;
+}
+
 body {
     background-color: #f8f8f8;
 }

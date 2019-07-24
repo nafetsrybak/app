@@ -46,6 +46,10 @@
 
 
         <ul class="nav navbar-top-links navbar-right">
+            @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+            @else
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -62,6 +66,7 @@
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
+            @endif
             <!-- /.dropdown -->
         </ul>
 
