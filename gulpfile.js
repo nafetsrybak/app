@@ -29,3 +29,4 @@ mix.sass('app.scss')
 'libs/scripts.js'
 ], './public/js/libs.js')
 });
+
