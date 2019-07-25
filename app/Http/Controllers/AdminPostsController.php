@@ -28,7 +28,9 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        //$posts = Post::all();
+
+        $posts = Post::paginate(2);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -165,7 +167,7 @@ class AdminPostsController extends Controller
         return redirect('admin/posts');
     }
 
-    public function post($id){
+    public function post($slug){
         //можна зразу з коментами
         // $post = Post::with('comments')->findOrFail($id);
 
@@ -173,14 +175,14 @@ class AdminPostsController extends Controller
 
         //$comments = $post->comments()->whereIsActive(1)->get();
 
-        $post = Post::with([
-            'comments' => function ($q){
-                $q->whereIsActive(1);
-            },
-            'comments.replies' => function ($q){
-                $q->where('is_active', 1);
-            }
-        ])->findOrFail($id);
+        // $post = Post::with([
+        //     'comments' => function ($q){
+        //         $q->whereIsActive(1);
+        //     },
+        //     'comments.replies' => function ($q){
+        //         $q->where('is_active', 1);
+        //     }
+        // ])->findOrFail($id);
 
         // $post = Post::with([
         //     'comments' => function($q){
@@ -196,6 +198,17 @@ class AdminPostsController extends Controller
         //dd($post);
 
         //$comments = $post->comments;
+
+        //dd($post);
+
+        $post = Post::with([
+            'comments' => function ($q){
+                $q->whereIsActive(1);
+            },
+            'comments.replies' => function ($q){
+                $q->where('is_active', 1);
+            }
+        ])->whereSlug($slug)->firstOrFail();
 
         //dd($post);
 

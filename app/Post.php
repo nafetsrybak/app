@@ -4,8 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+
+// use Cviebrock\EloquentSluggable\Sluggable;
+// use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+
+class Post extends Model implements SluggableInterface
 {
+	use SluggableTrait;
+
+	// use Sluggable;
+ //    use SluggableScopeHelpers;
+
+	protected $sluggable = [
+		'build_from' => 'title',
+		'save_to' => 'slug',
+		'on_update' => true
+	];
     //
     protected $fillable = [
     	'category_id',

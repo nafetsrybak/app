@@ -9,6 +9,7 @@ return array(
     'AddPhotoIdToUsers' => $baseDir . '/database/migrations/2019_07_18_145648_add_photo_id_to_users.php',
     'AddPhotoToTableCommentReplies' => $baseDir . '/database/migrations/2019_07_22_153830_add_photo_to_table_comment_replies.php',
     'AddPhotoToTableComments' => $baseDir . '/database/migrations/2019_07_22_153602_add_photo_to_table_comments.php',
+    'AddSlugToPostsTable' => $baseDir . '/database/migrations/2019_07_25_110748_add_slug_to_posts_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2019_07_20_115644_create_categories_table.php',
     'CreateCommentRepliesTable' => $baseDir . '/database/migrations/2019_07_21_195623_create_comment_replies_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2019_07_21_195555_create_comments_table.php',

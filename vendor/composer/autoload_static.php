@@ -8,11 +8,11 @@ class ComposerStaticInitf877049435cdd552ab3e2d6774b6230d
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -91,7 +91,9 @@ class ComposerStaticInitf877049435cdd552ab3e2d6774b6230d
         ),
         'C' => 
         array (
+            'Cviebrock\\EloquentSluggable\\' => 28,
             'Cron\\' => 5,
+            'Cocur\\Slugify\\' => 14,
             'ClassPreloader\\' => 15,
         ),
         'A' => 
@@ -247,9 +249,17 @@ class ComposerStaticInitf877049435cdd552ab3e2d6774b6230d
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
         ),
+        'Cviebrock\\EloquentSluggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
+        ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
         'ClassPreloader\\' => 
         array (
@@ -293,6 +303,7 @@ class ComposerStaticInitf877049435cdd552ab3e2d6774b6230d
         'AddPhotoIdToUsers' => __DIR__ . '/../..' . '/database/migrations/2019_07_18_145648_add_photo_id_to_users.php',
         'AddPhotoToTableCommentReplies' => __DIR__ . '/../..' . '/database/migrations/2019_07_22_153830_add_photo_to_table_comment_replies.php',
         'AddPhotoToTableComments' => __DIR__ . '/../..' . '/database/migrations/2019_07_22_153602_add_photo_to_table_comments.php',
+        'AddSlugToPostsTable' => __DIR__ . '/../..' . '/database/migrations/2019_07_25_110748_add_slug_to_posts_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2019_07_20_115644_create_categories_table.php',
         'CreateCommentRepliesTable' => __DIR__ . '/../..' . '/database/migrations/2019_07_21_195623_create_comment_replies_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2019_07_21_195555_create_comments_table.php',
