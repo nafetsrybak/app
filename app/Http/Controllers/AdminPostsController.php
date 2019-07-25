@@ -166,10 +166,39 @@ class AdminPostsController extends Controller
     }
 
     public function post($id){
-        $post = Post::findOrFail($id);
+        //можна зразу з коментами
+        // $post = Post::with('comments')->findOrFail($id);
 
-        $comments = $post->comments()->whereIsActive(1)->get();
+        //$post = Post::findOrFail($id);
 
-        return view('post', compact('post', 'comments'));
+        //$comments = $post->comments()->whereIsActive(1)->get();
+
+        $post = Post::with([
+            'comments' => function ($q){
+                $q->whereIsActive(1);
+            },
+            'comments.replies' => function ($q){
+                $q->where('is_active', 1);
+            }
+        ])->findOrFail($id);
+
+        // $post = Post::with([
+        //     'comments' => function($q){
+        //         $q->with([
+        //             'replies' => function($q){
+        //                 $q->whereIsActive(1);
+        //             }
+        //         ])
+        //         ->whereIsActive(1);
+        //     }
+        // ])->findOrFail($id);
+
+        //dd($post);
+
+        //$comments = $post->comments;
+
+        //dd($post);
+
+        return view('post', compact('post'));
     }
 }

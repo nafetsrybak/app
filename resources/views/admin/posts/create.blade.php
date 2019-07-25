@@ -7,11 +7,11 @@
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="name">Title:</label>
-				<input class="form-control" type="text" id="name" name="title" placeholder="Name"><br>
+				<input class="form-control" type="text" id="name" name="title" placeholder="Name" value="{{ old('title') }}"><br>
 			</div>
 			<div class="form-group">
 				<label for="body">Body:</label>
-				<textarea class="form-control" rows="4" id="body" name="body" placeholder="Body"></textarea><br>
+				<textarea class="form-control" rows="4" id="body" name="body" placeholder="Body">{{ old('body') }}</textarea><br>
 			</div>
 			<div class="form-group">
 		      <label for="category">Category:</label>

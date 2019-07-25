@@ -1,2 +1,7 @@
+.comment-reply {
+  display: none; }
+
+.media-body p {
+  margin: 0 0 30px; }
 
 /*# sourceMappingURL=app.css.map */

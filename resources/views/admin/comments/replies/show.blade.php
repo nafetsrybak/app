@@ -22,7 +22,7 @@
 						<td>{{ $reply->author }}</td>
 						<td>{{ $reply->email }}</td>
 						<td>{{ $reply->body }}</td>
-						<td><a href="{{ route('home.post', $reply->comment->post->id) }}">{{ $reply->post->id }}</a></td>
+						<td><a href="{{ route('home.post', $reply->comment->post->id) }}">{{ $reply->comment->post->id }}</a></td>
 						<td>
 							@if($reply->is_active == 1)
 								<form method="post" action="{{ route('admin.comment.replies.update', $reply->id) }}">
@@ -54,13 +54,13 @@
 									<div class="form-group">
 										<button class="btn btn-danger btn-lg">Delete</button>
 									</div>	
-								</form>
+							</form>
 						</td>
 					</tr>
 				@endforeach()
 			</tbody>
 		</table>
 	@else
-		<h1 class="text-center">No Comments</h1>
+		<h1 class="text-center">No Replies</h1>
 	@endif()
 @endsection()

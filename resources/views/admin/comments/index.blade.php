@@ -11,6 +11,7 @@
 					<th>Email</th>
 					<th>Body</th>
 					<th>Post id</th>
+					<th>View replies</th>
 					<th>Action</th>
 					<th>Delete</th>
 				</tr>
@@ -23,6 +24,13 @@
 						<td>{{ $comment->email }}</td>
 						<td>{{ $comment->body }}</td>
 						<td><a href="{{ route('home.post', $comment->post->id) }}">{{ $comment->post->id }}</a></td>
+						<td>
+							@if($comment->replies()->exists())
+							<a href="{{ route('admin.comment.replies.show', $comment->id) }}">{{ count($comment->replies) }}</a>
+							@else
+							0
+							@endif
+						</td>
 						<td>
 							@if($comment->is_active == 1)
 								<form method="post" action="{{ route('admin.comments.update', $comment->id) }}">
