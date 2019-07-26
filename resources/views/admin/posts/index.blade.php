@@ -31,7 +31,7 @@
 						<td>{{ $post->id }}</td>
 						<td>
 							<div class="thumbnail">
-								<a href="{{ route('admin.posts.edit', $post->id) }}"><img src="{{ ($post->photo) ? $post->photo->file : '/images/noimage.jpg'}}"></a>
+								<a href="{{ route('posts.edit', $post->id) }}"><img src="{{ ($post->photo) ? $post->photo->file : '/images/noimage.jpg'}}"></a>
 							</div>
 						</td>
 						<td>{{ ($post->user) ? $post->user->name : 'no owner' }}</td>
@@ -39,7 +39,7 @@
 						<td>{{ $post->title }}</td>
 						<td>{{ str_limit($post->body, 20) }}</td>
 						<td><a href="{{ route('home.post', $post->slug) }}">View post</a></td>
-						<td><a href="{{ route('admin.comments.show', $post->id) }}">View comments</a></td>
+						<td><a href="{{ route('comments.show', $post->id) }}">View comments</a></td>
 						<td>{{ $post->created_at->diffForHumans() }}</td>
 						<td>{{ $post->updated_at->diffForHumans() }}</td>
 					</tr>

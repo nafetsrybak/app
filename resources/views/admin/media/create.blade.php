@@ -5,7 +5,7 @@
 
 @section('content')
 	<h1>Upload Media</h1>
-	<form action="{{ route('admin.media.store') }}" class="dropzone" id="my-awesome-dropzone" enctype="multipart/form-data">
+	<form action="{{ route('media.store') }}" class="dropzone" id="my-awesome-dropzone" enctype="multipart/form-data">
 		{{ csrf_field() }}
 	</form>
 

@@ -10,7 +10,7 @@
 					<th>Author</th>
 					<th>Email</th>
 					<th>Body</th>
-					<th>Post id</th>
+					<th>Post</th>
 					<th>Action</th>
 					<th>Delete</th>
 				</tr>
@@ -22,10 +22,10 @@
 						<td>{{ $reply->author }}</td>
 						<td>{{ $reply->email }}</td>
 						<td>{{ $reply->body }}</td>
-						<td><a href="{{ route('home.post', $reply->comment->post->id) }}">{{ $reply->comment->post->id }}</a></td>
+						<td><a href="{{ route('home.post', $reply->comment->post->slug) }}">{{ $reply->comment->post->id }}</a></td>
 						<td>
 							@if($reply->is_active == 1)
-								<form method="post" action="{{ route('admin.comment.replies.update', $reply->id) }}">
+								<form method="post" action="{{ route('replies.update', $reply->id) }}">
 									{{ method_field('PATCH') }}
 										<input type="hidden" name="is_active" value="0"><br>
 									{{ csrf_field() }}
@@ -35,7 +35,7 @@
 									</div>	
 								</form>
 							@else
-								<form method="post" action="{{ route('admin.comment.replies.update', $reply->id) }}">
+								<form method="post" action="{{ route('replies.update', $reply->id) }}">
 									{{ method_field('PATCH') }}
 										<input type="hidden" name="is_active" value="1"><br>
 									{{ csrf_field() }}
@@ -47,7 +47,7 @@
 							@endif
 						</td>
 						<td>
-							<form method="post" action="{{ route('admin.comment.replies.destroy', $reply->id) }}">
+							<form method="post" action="{{ route('replies.destroy', $reply->id) }}">
 									{{ method_field('DELETE') }}
 									{{ csrf_field() }}
 									<!-- @csrf -->

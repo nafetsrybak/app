@@ -26,14 +26,14 @@
 						<td><a href="{{ route('home.post', $comment->post->id) }}">{{ $comment->post->id }}</a></td>
 						<td>
 							@if($comment->replies()->exists())
-							<a href="{{ route('admin.comment.replies.show', $comment->id) }}">{{ count($comment->replies) }}</a>
+							<a href="{{ route('replies.show', $comment->id) }}">{{ count($comment->replies) }}</a>
 							@else
 							0
 							@endif
 						</td>
 						<td>
 							@if($comment->is_active == 1)
-								<form method="post" action="{{ route('admin.comments.update', $comment->id) }}">
+								<form method="post" action="{{ route('comments.update', $comment->id) }}">
 									{{ method_field('PATCH') }}
 										<input type="hidden" name="is_active" value="0"><br>
 									{{ csrf_field() }}
@@ -43,7 +43,7 @@
 									</div>	
 								</form>
 							@else
-								<form method="post" action="{{ route('admin.comments.update', $comment->id) }}">
+								<form method="post" action="{{ route('comments.update', $comment->id) }}">
 									{{ method_field('PATCH') }}
 										<input type="hidden" name="is_active" value="1"><br>
 									{{ csrf_field() }}
@@ -55,7 +55,7 @@
 							@endif
 						</td>
 						<td>
-							<form method="post" action="{{ route('admin.comments.destroy', $comment->id) }}">
+							<form method="post" action="{{ route('comments.destroy', $comment->id) }}">
 									{{ method_field('DELETE') }}
 									{{ csrf_field() }}
 									<!-- @csrf -->

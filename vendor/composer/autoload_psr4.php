@@ -27,6 +27,7 @@ return array(
     'Symfony\\Component\\CssSelector\\' => array($vendorDir . '/symfony/css-selector'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/superclosure/src'),
+    'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src/Prophecy'),

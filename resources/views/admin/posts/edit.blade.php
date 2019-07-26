@@ -7,7 +7,7 @@
 			<img src="{{ ($post->photo) ? $post->photo->file : url('images/noimage.jpg') }}" class="img-responsive img-rounded">
 		</div>
 		<div class="col-sm-9">
-			<form method="post" action="{{ route('admin.posts.update', $post->id) }}" enctype="multipart/form-data">
+			<form method="post" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				{{ method_field('PATCH') }}
 				<div class="form-group">
@@ -48,7 +48,7 @@
 					<button class="btn btn-lg btn-info col-sm-3 col-xs-5">Update post</button>
 				</div>	
 			</form>
-			<form method="post" action="{{ route('admin.posts.destroy', $post->id) }}">
+			<form method="post" action="{{ route('posts.destroy', $post->id) }}">
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 				<div class="form-group">

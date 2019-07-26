@@ -9,7 +9,7 @@
 	<h1>Categories</h1>
 	<div class="row">
 		<div class="col-sm-6">
-			<form method="post" action="{{ route('admin.categories.store') }}">
+			<form method="post" action="{{ route('categories.store') }}">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="name">Name of category:</label>
@@ -35,7 +35,7 @@
 						@foreach($categories as $category)
 							<tr>
 								<td>{{ $category->id }}</td>
-								<td><a href="{{ route('admin.categories.edit', $category->id) }}">{{ $category->name }}</a></td>
+								<td><a href="{{ route('categories.edit', $category->id) }}">{{ $category->name }}</a></td>
 								<td>{{ $category->created_at->diffForHumans() }}</td>
 								<td>{{ $category->updated_at->diffForHumans() }}</td>
 							</tr>

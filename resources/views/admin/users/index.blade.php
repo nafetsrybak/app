@@ -31,7 +31,7 @@
 								<img src="{{ ($user->photo) ? $user->photo->file : '/images/noimage.jpg'}}">
 							</div>
 						</td>
-						<td><a href="{{ route('admin.users.edit', $user->id) }}">{{ $user->name }}</a></td>
+						<td><a href="{{ route('users.edit', $user->id) }}">{{ $user->name }}</a></td>
 						<td>{{ $user->email }}</td>
 						<td>{{ ($user->role()->exists()) ?  $user->role->name : 'Has no role'}}</td>
 						<td>{{ ($user->is_active) ? 'Active' : 'Not Active'}}</td>

@@ -4,7 +4,7 @@
 	<h1>Update category</h1>
 	<div class="row">
 		<div class="col-sm-6">
-			<form method="post" action="{{ route('admin.categories.update', $category->id) }}">
+			<form method="post" action="{{ route('categories.update', $category->id) }}">
 				{{ method_field('PATCH') }}
 				{{ csrf_field() }}
 				<div class="form-group">
@@ -15,7 +15,7 @@
 					<button class="btn btn-lg btn-info col-sm-5 col-xs-5">Update category</button>
 				</div>	
 			</form>
-			<form method="post" action="{{ route('admin.categories.destroy', $category->id) }}">
+			<form method="post" action="{{ route('categories.destroy', $category->id) }}">
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 				<div class="form-group">

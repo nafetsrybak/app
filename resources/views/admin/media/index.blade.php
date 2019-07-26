@@ -29,7 +29,7 @@
 					</td>
 					<td>{{ $photo->created_at->diffForHumans() }}</td>
 					<td>
-						<form method="post" action="{{ route('admin.media.destroy', $photo->id) }}">
+						<form method="post" action="{{ route('media.destroy', $photo->id) }}">
 							{{ csrf_field() }}
 							{{ method_field('DELETE') }}
 							<div class="form-group">

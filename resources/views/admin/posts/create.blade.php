@@ -3,7 +3,7 @@
 @section('content')
 	<h1>Create Post</h1>
 	<div class="row">
-		<form method="post" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data">
+		<form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="name">Title:</label>

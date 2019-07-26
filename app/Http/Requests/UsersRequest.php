@@ -29,7 +29,7 @@ class UsersRequest extends Request
      * @return array
      */
     public function rules()
-    { 
+    {
         switch($this->method()){
             case 'POST':{
                 return [
@@ -46,7 +46,7 @@ class UsersRequest extends Request
                 return [
                     //
                     'name'=>'required|string',
-                    'email'=>'required|email|unique:users,email,'.$this->route('users'),
+                    'email'=>'required|email|unique:users,email,'.$this->route('user'),
                     'role_id'=>'required|integer|exists:roles,id',
                     'is_active'=>'required|integer|min:0|max:1',
                     'password'=>'string',

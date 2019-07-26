@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Create Users</h1>
-<form method="post" action="{{ route('admin.users.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	<div class="form-group">
 		<label for="name">Name:</label>

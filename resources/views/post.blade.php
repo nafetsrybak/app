@@ -41,7 +41,7 @@
         <!-- Comments Form -->
         <div class="well">
             <h4>Leave a Comment:</h4>
-            <form method="post" role="form" action="{{ route('admin.comments.store') }}">
+            <form method="post" role="form" action="{{ route('comments.store') }}">
             	{{ csrf_field() }}
             		<input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="form-group">
