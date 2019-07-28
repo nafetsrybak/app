@@ -41,3 +41,11 @@ Route::resource('/admin/comment/replies', 'CommentRepliesController');
 Route::get('/phpinfo', function(){
 	phpinfo();
 });
+
+Route::get('/image', function()
+{
+	return 'hello';
+    $img = Image::make('foo.jpg')->resize(300, 200);
+
+    return $img->response('jpg');
+});

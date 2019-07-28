@@ -34,6 +34,7 @@
 			</div>	
 		</form>
 	</div>
+	@include('includes.CKE')
 	<div class="row">
 		@include('includes.form_error')
 	</div>
