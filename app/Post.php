@@ -49,4 +49,8 @@ class Post extends Model implements SluggableInterface
     public function replies(){
 		return $this->hasManyThrough('App\CommentReply', 'App\Comment');
     }
+
+    public function setBodyAttribute($body){
+        $this->attributes['body'] = str_replace(['script'], '', $body);
+    }
 }

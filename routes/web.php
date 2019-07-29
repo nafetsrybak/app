@@ -29,9 +29,14 @@ Route::post('comment/reply', [
 	'uses'=>'CommentRepliesController@createReply',
 	'middleware'=>'auth'
 ]);
-Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
-
-
+Route::get('/post/{id}', [
+	'as'=>'home.post',
+	'uses'=>'AdminPostsController@post'
+]);
+Route::delete('admin/delete/media', [
+	'as'=>'delete.media',
+	'uses'=>'AdminMediasController@deleteMedia'
+]);
 
 Route::resource('/admin/users', 'AdminUsersController');
 Route::resource('/admin/posts', 'AdminPostsController');
@@ -42,4 +47,9 @@ Route::resource('/admin/comment/replies', 'CommentRepliesController');
 
 Route::get('/phpinfo', function(){
 	phpinfo();
+});
+
+Route::get('/script', function(){
+	var_dump(get_html_translation_table(ENT_HTML5));
+	// echo htmlentities('script');
 });
