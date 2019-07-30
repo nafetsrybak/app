@@ -11,27 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/home', 'HomeController@index');
-
 Route::get('/admin', [
-	'middleware'=>['auth', 'admin'],
 	'as' => 'admin',
-	function(){
-		return view('admin.index');
-	}
+	'uses' => 'AdminController@index'
 ]);
 Route::post('comment/reply', [
 	'as'=>'create.reply',
-	'uses'=>'CommentRepliesController@createReply',
-	'middleware'=>'auth'
+	'uses'=>'CommentRepliesController@createReply'
 ]);
 Route::get('/post/{id}', [
 	'as'=>'home.post',
@@ -51,9 +44,4 @@ Route::resource('/admin/comment/replies', 'CommentRepliesController');
 
 Route::get('/phpinfo', function(){
 	phpinfo();
-});
-
-Route::get('/script', function(){
-	var_dump(get_html_translation_table(ENT_HTML5));
-	// echo htmlentities('script');
 });
