@@ -21,9 +21,13 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin', ['middleware'=>['auth', 'admin'], function(){
-	return view('admin.index');
-}]);
+Route::get('/admin', [
+	'middleware'=>['auth', 'admin'],
+	'as' => 'admin',
+	function(){
+		return view('admin.index');
+	}
+]);
 Route::post('comment/reply', [
 	'as'=>'create.reply',
 	'uses'=>'CommentRepliesController@createReply',

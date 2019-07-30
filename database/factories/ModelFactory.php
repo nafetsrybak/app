@@ -17,7 +17,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->safeEmail,
         'role_id' => 2,
         'is_active' => $faker->numberBetween(0,1),
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt('secret1234567'),
         'photo_id' => 0,
         'remember_token' => str_random(10),
     ];
@@ -52,7 +52,7 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Photo::class, function (Faker\Generator $faker) {
     return [
-        'file' => 'placeholder.jpg'      
+        'file' => 'noimage.jpg'      
     ];
 });
 
@@ -61,7 +61,7 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
         'post_id' => $faker->numberBetween(1,10),
         'is_active' => 1,
 		'author' => $faker->name,
-		'photo' => 'placeholder.jpg',
+		'photo' => 'noimage.jpg',
 		'email' => $faker->safeEmail,
 		'body' => $faker->paragraphs(1, true)      
     ];
@@ -72,7 +72,7 @@ $factory->define(App\CommentReply::class, function (Faker\Generator $faker) {
         'comment_id' => $faker->numberBetween(1,10),
         'is_active' => 1,
 		'author' => $faker->name,
-		'photo' => 'placeholder.jpg',
+		'photo' => 'noimage.jpg',
 		'email' => $faker->safeEmail,
 		'body' => $faker->paragraphs(1, true)      
     ];

@@ -150,11 +150,11 @@ return [
 
 
         /*for pretty urls*/
-        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        //Cviebrock\EloquentSluggable\ServiceProvider::class,
 
         /* for file manager */
         //UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+        //Intervention\Image\ImageServiceProvider::class,
 
 
 
