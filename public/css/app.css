@@ -1,7 +1,9 @@
 .comment-reply {
-  display: none; }
+  display: none;
+}
 
 .media-body p {
-  margin: 0 0 30px; }
+  margin: 0 0 30px;
+}
 
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiL3Zhci93d3cvYXBwL3Jlc291cmNlcy9hc3NldHMvc2Fzcy9hcHAuc2NzcyIsInNvdXJjZXMiOlsiL3Zhci93d3cvYXBwL3Jlc291cmNlcy9hc3NldHMvc2Fzcy9hcHAuc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBAaW1wb3J0IFwibm9kZV9tb2R1bGVzL2Jvb3RzdHJhcC1zYXNzL2Fzc2V0cy9zdHlsZXNoZWV0cy9ib290c3RyYXBcIjtcblxuLmNvbW1lbnQtcmVwbHl7XG5cdGRpc3BsYXk6IG5vbmU7XG59XG5cbi5tZWRpYS1ib2R5IHB7XG5cdG1hcmdpbjogMCAwIDMwcHg7XG59Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBLEFBQUEsY0FBYyxDQUFBO0VBQ2IsT0FBTyxFQUFFLElBQUk7Q0FDYjs7QUFFRCxBQUFBLFdBQVcsQ0FBQyxDQUFDLENBQUE7RUFDWixNQUFNLEVBQUUsUUFBUTtDQUNoQiJ9 */

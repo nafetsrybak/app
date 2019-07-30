@@ -119,7 +119,7 @@ class CommentRepliesController extends Controller
             'comment_id' => $request->comment_id,
             'author' => $user->name,
             'email' => $user->email,
-            'photo' => $user->photo->file,
+            'photo' => ($user->photo) ? $user->photo->file : '/images/noimage.jpg',
             'body' => $request->body
         ];
 
