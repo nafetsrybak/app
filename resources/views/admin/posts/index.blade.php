@@ -14,10 +14,10 @@
 					<tr>
 						<th>Id</th>
 						<th class="col-sm-3">Photo</th>
+						<th>Title</th>
 						<th>Owner</th>
 						<th>Category</th>
-						<th>Title</th>
-						<th>Body</th>
+						<!-- <th>Body</th> -->
 						<th>Go to</th>
 						<th>Comments</th>
 						<th>Created</th>
@@ -34,10 +34,10 @@
 								<a href="{{ route('posts.edit', $post->id) }}"><img src="{{ ($post->photo) ? $post->photo->file : '/images/noimage.jpg'}}"></a>
 							</div>
 						</td>
+						<td>{{ $post->title }}</td>
 						<td>{{ ($post->user) ? $post->user->name : 'no owner' }}</td>
 						<td>{{ ($post->category) ? $post->category->name : 'no category' }}</td>
-						<td>{{ $post->title }}</td>
-						<td>{{ str_limit($post->body, 20) }}</td>
+						<!-- <td> str_limit($post->body, 20) </td> -->
 						<td><a href="{{ route('home.post', $post->slug) }}">View post</a></td>
 						<td><a href="{{ route('comments.show', $post->id) }}">View comments</a></td>
 						<td>{{ $post->created_at->diffForHumans() }}</td>
