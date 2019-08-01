@@ -28,7 +28,7 @@ Route::post('comment/reply', [
 ]);
 Route::get('/post/{id}', [
 	'as'=>'home.post',
-	'uses'=>'AdminPostsController@post'
+	'uses'=>'HomeController@post'
 ]);
 Route::delete('admin/delete/media', [
 	'as'=>'delete.media',

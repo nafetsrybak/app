@@ -28,7 +28,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'title' => $faker->sentence(7,11),
         'body' => $faker->paragraphs(rand(10,15), true),
         'category_id' => $faker->numberBetween(1,10),
-        'photo_id' => 1,
+        'photo_id' => 0,
         'slug' => $faker->slug()
         
     ];
@@ -50,18 +50,18 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Photo::class, function (Faker\Generator $faker) {
-    return [
-        'file' => 'noimage.jpg'      
-    ];
-});
+// $factory->define(App\Photo::class, function (Faker\Generator $faker) {
+//     return [
+//         'file' => 'noimage.jpg'      
+//     ];
+// });
 
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     return [
         'post_id' => $faker->numberBetween(1,10),
         'is_active' => 1,
 		'author' => $faker->name,
-		'photo' => 'noimage.jpg',
+		'photo' => '/images/noimage.jpg',
 		'email' => $faker->safeEmail,
 		'body' => $faker->paragraphs(1, true)      
     ];
@@ -72,7 +72,7 @@ $factory->define(App\CommentReply::class, function (Faker\Generator $faker) {
         'comment_id' => $faker->numberBetween(1,10),
         'is_active' => 1,
 		'author' => $faker->name,
-		'photo' => 'noimage.jpg',
+		'photo' => '/images/noimage.jpg',
 		'email' => $faker->safeEmail,
 		'body' => $faker->paragraphs(1, true)      
     ];

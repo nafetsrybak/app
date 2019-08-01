@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
 
     	factory(App\Category::class, 10)->create();
 
-    	factory(App\Photo::class, 1)->create();
+    	// factory(App\Photo::class, 1)->create();
 
     	factory(App\Comment::class, 10)->create()->each(function($c){
     		$c->replies()->save(factory(App\CommentReply::class)->make());

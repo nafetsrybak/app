@@ -116,8 +116,10 @@ class AdminPostsController extends Controller
     public function update(PostsRequest $request, $id)
     {
         //
-        //$post = Post::findOrFail($id);
-        $post = Auth::user()->posts()->whereId($id)->first();
+        $post = Post::findOrFail($id);
+        //$post = Auth::user()->posts()->whereId($id)->first();
+
+        //dd($post);
 
         $input = $request->all();
 
@@ -128,6 +130,7 @@ class AdminPostsController extends Controller
 
             if($post->photo){
                 unlink(public_path() . $post->photo->file);
+                //$post->photo->delete();
 
                 $post->photo->update(['file'=>$name]);
                 $input['photo_id'] = $post->photo->id;
@@ -165,53 +168,5 @@ class AdminPostsController extends Controller
         session()->flash('massage_text', 'The post has been deleted!');
 
         return redirect('admin/posts');
-    }
-
-    public function post($slug){
-        //можна зразу з коментами
-        // $post = Post::with('comments')->findOrFail($id);
-
-        //$post = Post::findOrFail($id);
-
-        //$comments = $post->comments()->whereIsActive(1)->get();
-
-        // $post = Post::with([
-        //     'comments' => function ($q){
-        //         $q->whereIsActive(1);
-        //     },
-        //     'comments.replies' => function ($q){
-        //         $q->where('is_active', 1);
-        //     }
-        // ])->findOrFail($id);
-
-        // $post = Post::with([
-        //     'comments' => function($q){
-        //         $q->with([
-        //             'replies' => function($q){
-        //                 $q->whereIsActive(1);
-        //             }
-        //         ])
-        //         ->whereIsActive(1);
-        //     }
-        // ])->findOrFail($id);
-
-        //dd($post);
-
-        //$comments = $post->comments;
-
-        //dd($post);
-
-        $post = Post::with([
-            'comments' => function ($q){
-                $q->whereIsActive(1);
-            },
-            'comments.replies' => function ($q){
-                $q->where('is_active', 1);
-            }
-        ])->whereSlug($slug)->firstOrFail();
-
-        //dd($post);
-
-        return view('post', compact('post'));
     }
 }

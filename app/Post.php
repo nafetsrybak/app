@@ -48,4 +48,8 @@ class Post extends Model
     public function setBodyAttribute($body){
         $this->attributes['body'] = str_replace(['script'], '', $body);
     }
+
+    public function placeholder(){
+        return '/images/noimage.jpg';
+    }
 }

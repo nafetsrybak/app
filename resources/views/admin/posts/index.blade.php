@@ -39,7 +39,7 @@
 						<td>{{ ($post->category) ? $post->category->name : 'no category' }}</td>
 						<!-- <td> str_limit($post->body, 20) </td> -->
 						<td><a href="{{ route('home.post', $post->slug) }}">View post</a></td>
-						<td><a href="{{ route('comments.show', $post->id) }}">View comments</a></td>
+						<td><a href="{{ route('comments.show', $post->id) }}">{{ $post->comments()->count() }}</a></td>
 						<td>{{ $post->created_at->diffForHumans() }}</td>
 						<td>{{ $post->updated_at->diffForHumans() }}</td>
 					</tr>
